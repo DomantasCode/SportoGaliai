@@ -3,11 +3,11 @@ import { ArrowRight, Star, ShieldCheck, PlayCircle } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-28 pb-12 md:pt-32 md:pb-24 overflow-hidden bg-dark">
+    <section className="relative min-h-screen flex items-center pt-28 pb-12 md:pt-32 md:pb-24 overflow-hidden bg-white dark:bg-dark transition-colors duration-300">
       
       {/* Background Ambience */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 z-0 pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 z-0 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-secondary/5 dark:bg-secondary/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 z-0 pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/3 dark:bg-primary/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 z-0 pointer-events-none"></div>
 
       <div className="container mx-auto px-4 md:px-6 2xl:px-12 3xl:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -15,21 +15,21 @@ const Hero: React.FC = () => {
           {/* Left Content Side */}
           <div className="lg:col-span-6 flex flex-col justify-center animate-in slide-in-from-left duration-700 fade-in text-center lg:text-left pt-6 lg:pt-0">
             
-            <div className="inline-flex items-center gap-3 bg-highlight border border-highlight/20 px-5 py-2.5 rounded-full shadow-sm mb-8 w-fit mx-auto lg:mx-0 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100 hover:border-secondary/30 transition-colors cursor-default">
+            <div className="inline-flex items-center gap-3 bg-highlight/90 dark:bg-highlight border border-highlight/30 dark:border-highlight/20 px-5 py-2.5 rounded-full shadow-sm mb-8 w-fit mx-auto lg:mx-0 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100 hover:border-secondary/30 transition-colors cursor-default">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-dark opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-dark"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-900 dark:bg-dark opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-gray-900 dark:bg-dark"></span>
               </span>
-              <span className="text-xs font-bold text-dark tracking-widest uppercase">VAIKŲ IR ŠEIMOS SPORTO AKADEMIJA</span>
+              <span className="text-xs font-bold text-gray-900 dark:text-dark tracking-widest uppercase">VAIKŲ IR ŠEIMOS SPORTO AKADEMIJA</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white mb-6 leading-[1.05] tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 dark:text-white mb-6 leading-[1.05] tracking-tight">
               Sportas, kuris <br className="hidden lg:block"/>
               <span>augina</span>
               <span className="font-serif italic font-light text-secondary ml-2">asmenybes</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-300 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
               Profesionali kineziterapija ir modernios treniruotės vaikams. Vieta, kur formuojasi taisyklinga laikysena ir stiprus charakteris.
             </p>
             
@@ -43,14 +43,14 @@ const Hero: React.FC = () => {
               </a>
               <a
                 href="#about"
-                className="bg-transparent text-white border-2 border-white/30 px-8 py-4 rounded-[2rem] font-bold text-lg hover:border-secondary hover:text-secondary hover:bg-white/10 transition-all flex items-center justify-center gap-3 shadow-sm min-w-[200px]"
+                className="bg-transparent text-gray-900 dark:text-white border-2 border-gray-300 dark:border-white/30 px-8 py-4 rounded-[2rem] font-bold text-lg hover:border-secondary hover:text-secondary hover:bg-gray-100 dark:hover:bg-white/10 transition-all flex items-center justify-center gap-3 shadow-sm min-w-[200px]"
               >
                 <PlayCircle className="w-5 h-5" />
                 Kaip tai veikia?
               </a>
             </div>
 
-            <div className="mt-12 flex items-center justify-center lg:justify-start gap-8 text-gray-400 text-sm font-medium">
+            <div className="mt-12 flex items-center justify-center lg:justify-start gap-8 text-gray-600 dark:text-gray-400 text-sm font-medium">
                 <div className="flex items-center gap-2">
                     <ShieldCheck className="text-secondary" size={20} />
                     <span>Sertifikuoti treneriai</span>
@@ -86,12 +86,12 @@ const Hero: React.FC = () => {
 
                  {/* Floating Element 1 (Top Right) */}
                  <div className="absolute top-[10%] right-0 md:right-[5%] z-20 animate-bounce-slow hidden sm:block">
-                     <div className="bg-white p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-gray-100 transform rotate-3 hover:rotate-0 transition-transform">
+                     <div className="bg-white dark:bg-white/90 p-4 rounded-2xl shadow-xl flex items-center gap-3 border border-gray-100 dark:border-gray-200 transform rotate-3 hover:rotate-0 transition-transform">
                          <div className="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary">
                              <Star fill="currentColor" size={24} />
                          </div>
                          <div>
-                             <p className="text-xs text-gray-500 uppercase font-bold tracking-wider">Įvertinimas</p>
+                             <p className="text-xs text-gray-500 dark:text-gray-600 uppercase font-bold tracking-wider">Įvertinimas</p>
                              <p className="text-primary font-bold text-lg">5.0 / 5.0</p>
                          </div>
                      </div>
@@ -99,10 +99,10 @@ const Hero: React.FC = () => {
 
                  {/* Floating Element 2 (Bottom Left) */}
                  <div className="absolute bottom-[15%] left-0 md:left-[5%] z-20 animate-bounce-slow" style={{ animationDelay: '1s' }}>
-                     <div className="bg-white p-4 rounded-2xl shadow-xl border border-gray-100 transform -rotate-3 hover:rotate-0 transition-transform max-w-[180px]">
+                     <div className="bg-white dark:bg-white/90 p-4 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-200 transform -rotate-3 hover:rotate-0 transition-transform max-w-[180px]">
                          <p className="text-primary font-bold text-sm mb-1">Kineziterapija</p>
-                         <p className="text-gray-500 text-xs leading-tight">Profesionali laikysenos korekcija vaikams</p>
-                         <div className="mt-2 h-1 w-full bg-gray-100 rounded-full overflow-hidden">
+                         <p className="text-gray-500 dark:text-gray-600 text-xs leading-tight">Profesionali laikysenos korekcija vaikams</p>
+                         <div className="mt-2 h-1 w-full bg-gray-100 dark:bg-gray-200 rounded-full overflow-hidden">
                              <div className="h-full w-[80%] bg-secondary rounded-full"></div>
                          </div>
                      </div>

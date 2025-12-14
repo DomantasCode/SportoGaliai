@@ -3,13 +3,13 @@ import { SPONSORS } from '../constants.tsx';
 
 const Sponsors: React.FC = () => {
   return (
-    <section className="py-20 bg-dark border-b border-white/5 overflow-hidden">
+    <section className="py-20 bg-white dark:bg-dark border-b border-gray-200 dark:border-white/5 overflow-hidden transition-colors duration-300">
       <div className="container mx-auto px-4 md:px-6 2xl:px-12 3xl:px-6">
         <div className="text-center mb-12">
           <div className="inline-block px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-bold uppercase tracking-widest mb-3">
             Pasitikėjimas
           </div>
-          <h2 className="text-3xl font-bold text-white">Mūsų draugai ir partneriai</h2>
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Mūsų draugai ir partneriai</h2>
         </div>
 
         {/* Marquee Container */}
@@ -31,8 +31,8 @@ const Sponsors: React.FC = () => {
           </div>
           
           {/* Gradient overlays for fade effect */}
-          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-dark to-transparent z-10"></div>
-          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-dark to-transparent z-10"></div>
+          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white dark:from-dark to-transparent z-10"></div>
+          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white dark:from-dark to-transparent z-10"></div>
         </div>
       </div>
       

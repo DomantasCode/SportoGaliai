@@ -3,7 +3,7 @@ import { STEPS } from '../constants.tsx';
 
 const Process: React.FC = () => {
   return (
-    <section id="process" className="py-28 bg-dark text-white relative overflow-hidden">
+    <section id="process" className="py-28 bg-white dark:bg-dark text-gray-900 dark:text-white relative overflow-hidden transition-colors duration-300">
       {/* Decor */}
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full border border-primary/10"></div>
       <div className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full border border-primary/20"></div>
@@ -12,7 +12,7 @@ const Process: React.FC = () => {
       <div className="container mx-auto px-4 md:px-6 2xl:px-12 3xl:px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">Paprasti žingsniai pradėti</h2>
-          <p className="text-white/80 max-w-2xl mx-auto text-lg">Pradėkite sporto kelionę sklandžiai ir be rūpesčių.</p>
+          <p className="text-gray-600 dark:text-white/80 max-w-2xl mx-auto text-lg">Pradėkite sporto kelionę sklandžiai ir be rūpesčių.</p>
         </div>
 
         <div className="relative">
@@ -28,8 +28,8 @@ const Process: React.FC = () => {
                     <div className="absolute inset-0 rounded-full border border-secondary/30 scale-125 animate-pulse"></div>
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-secondary transition-colors">{step.title}</h3>
-                  <p className="text-gray-400 leading-relaxed text-sm px-4">
+                  <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-secondary transition-colors">{step.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm px-4">
                     {step.description}
                   </p>
                 </div>
@@ -39,7 +39,7 @@ const Process: React.FC = () => {
         </div>
         
         <div className="mt-20 text-center">
-             <a href="#contact" className="inline-block bg-accent text-white border-2 border-accent px-10 py-4 rounded-full font-bold text-lg hover:bg-secondary hover:border-secondary hover:text-dark transition-all hover:scale-105 shadow-xl shadow-accent/30">
+             <a href="#contact" className="inline-block bg-accent text-white border-2 border-accent px-10 py-4 rounded-full font-bold text-lg hover:bg-secondary hover:border-secondary hover:text-gray-900 dark:hover:text-dark transition-all hover:scale-105 shadow-xl shadow-accent/30">
                  Registruotis
              </a>
         </div>

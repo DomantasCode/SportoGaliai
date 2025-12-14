@@ -5,6 +5,7 @@ export default {
     "./*.tsx",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     screens: {
       'sm': '640px',

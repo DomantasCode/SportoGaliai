@@ -13,7 +13,7 @@ const Benefits: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-24 md:py-32 bg-neutralDark relative overflow-hidden">
+    <section id="about" className="py-24 md:py-32 bg-gray-50 dark:bg-neutralDark relative overflow-hidden transition-colors duration-300">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[10%] left-[-10%] w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[100px]"></div>
@@ -30,7 +30,7 @@ const Benefits: React.FC = () => {
             <div className="absolute inset-0 bg-primary rounded-[3rem] -rotate-3 scale-95 opacity-5 group-hover:-rotate-1 transition-transform duration-700 ease-in-out"></div>
             
             {/* Video Container - Modified aspect ratio for shorter height (was 9/16, now 3/4) */}
-            <div className="relative aspect-[5/6] rounded-[2.5rem] overflow-hidden shadow-2xl bg-gray-100">
+            <div className="relative aspect-[5/6] rounded-[2.5rem] overflow-hidden shadow-2xl bg-gray-50 dark:bg-gray-100">
               <video
                 ref={videoRef}
                 className="w-full h-full object-cover"
@@ -82,11 +82,11 @@ const Benefits: React.FC = () => {
               <span className="text-secondary font-bold tracking-widest uppercase text-sm">Apie Mus</span>
             </div>
             
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-8 leading-[1.1]">
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-white mb-8 leading-[1.1]">
               Auginame <span className="text-secondary italic">sveikus</span> ir pasitikinčius vaikus
             </h2>
 
-            <div className="space-y-6 text-lg text-gray-300 leading-relaxed mb-10">
+            <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-10">
               <p>
                 „SportoGalia" – tai daugiau nei būrelis. Tai saugi erdvė, kurioje profesionali kineziterapija susitinka su vaikystės džiaugsmu. Mes tikime, kad kiekvienas vaikas yra čempionas savo unikaliu būdu.
               </p>
@@ -101,8 +101,8 @@ const Benefits: React.FC = () => {
                   <ShieldCheck size={28} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-white text-xl mb-1">Saugumas</h4>
-                  <p className="text-sm text-gray-400 leading-relaxed">
+                  <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-1">Saugumas</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                     Sertifikuota įranga ir kineziterapeutų priežiūra užtikrina saugų judėjimą.
                   </p>
                 </div>
@@ -113,8 +113,8 @@ const Benefits: React.FC = () => {
                   <Users size={28} strokeWidth={1.5} />
                 </div>
                 <div>
-                  <h4 className="font-bold text-white text-xl mb-1">Bendruomenė</h4>
-                  <p className="text-sm text-gray-400 leading-relaxed">
+                  <h4 className="font-bold text-gray-900 dark:text-white text-xl mb-1">Bendruomenė</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
                     Kuriame draugišką aplinką, kurioje šeimos susitinka ir auga kartu.
                   </p>
                 </div>

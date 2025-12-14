@@ -68,21 +68,21 @@ const Trainers: React.FC = () => {
   }, [selectedTrainer]);
 
   return (
-    <section id="trainers" className="py-32 bg-neutralDark relative">
+    <section id="trainers" className="py-32 bg-gray-50 dark:bg-neutralDark relative transition-colors duration-300">
       <div className="absolute inset-0 bg-noise opacity-30 pointer-events-none"></div>
 
       <div className="container mx-auto px-4 md:px-6 2xl:px-12 3xl:px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
           <div className="w-full md:max-w-2xl">
             <span className="text-secondary font-bold tracking-widest uppercase text-xs mb-3 block">Komanda</span>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-white mb-2">Mūsų ekspertai</h2>
-            <p className="text-gray-400 text-sm md:text-base">Spustelėkite ant trenerio kortelės, kad sužinotumėte daugiau.</p>
+            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-white mb-2">Mūsų ekspertai</h2>
+            <p className="text-gray-600 dark:text-gray-400 text-sm md:text-base">Spustelėkite ant trenerio kortelės, kad sužinotumėte daugiau.</p>
           </div>
           
           <div className="flex gap-4 mt-6 md:mt-0">
             <button
               onClick={() => scroll('left')}
-              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-secondary hover:text-secondary transition-all active:scale-95 bg-white/5 text-white shadow-sm"
+              className="w-12 h-12 rounded-full border border-gray-200 dark:border-white/20 flex items-center justify-center hover:bg-white/10 hover:border-secondary hover:text-secondary transition-all active:scale-95 bg-white/5 text-gray-900 dark:text-white shadow-sm"
               aria-label="Previous trainer"
             >
               <ChevronLeft size={24} />
@@ -111,7 +111,7 @@ const Trainers: React.FC = () => {
             >
               <div className="relative mb-6">
                 {/* Image Frame */}
-                <div className="aspect-[3/4] rounded-[2rem] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 ease-out shadow-lg relative bg-gray-100">
+                <div className="aspect-[3/4] rounded-[2rem] overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700 ease-out shadow-lg relative bg-gray-50 dark:bg-gray-100">
                   <img 
                     src={trainer.image} 
                     alt={trainer.name} 
@@ -127,7 +127,7 @@ const Trainers: React.FC = () => {
               </div>
               
               <div className="text-center group-hover:-translate-y-2 transition-transform duration-300">
-                <h3 className="text-2xl font-serif font-bold text-white mb-1">{trainer.name}</h3>
+                <h3 className="text-2xl font-serif font-bold text-gray-900 dark:text-white mb-1">{trainer.name}</h3>
                 <span className="text-secondary text-sm tracking-wider uppercase font-medium">{trainer.role}</span>
               </div>
             </div>
@@ -145,7 +145,7 @@ const Trainers: React.FC = () => {
             onClick={() => setSelectedTrainer(null)}
           ></div>
           
-          <div className="bg-white w-full max-w-5xl rounded-[2.5rem] overflow-hidden shadow-2xl relative z-10 animate-in zoom-in-95 slide-in-from-bottom-4 duration-300 flex flex-col md:flex-row max-h-[90vh] md:max-h-[85vh]">
+          <div className="bg-white dark:bg-gray-100 w-full max-w-5xl rounded-[2.5rem] overflow-hidden shadow-2xl relative z-10 animate-in zoom-in-95 slide-in-from-bottom-4 duration-300 flex flex-col md:flex-row max-h-[90vh] md:max-h-[85vh]">
             
             {/* Desktop Navigation Buttons (Outside Content) */}
             <button 
@@ -229,25 +229,25 @@ const Trainers: React.FC = () => {
 
                   {/* Info Grid */}
                   <div className="space-y-4">
-                    <div className="bg-white p-5 rounded-2xl border border-gray-100">
+                    <div className="bg-white dark:bg-gray-100 p-5 rounded-2xl border border-gray-100">
                       <h5 className="text-xs uppercase tracking-wider text-gray-500 mb-2 font-bold">Išsilavinimas</h5>
                       <p className="text-gray-700 font-medium">{selectedTrainer.education}</p>
                     </div>
 
-                    <div className="bg-white p-5 rounded-2xl border border-gray-100">
+                    <div className="bg-white dark:bg-gray-100 p-5 rounded-2xl border border-gray-100">
                       <h5 className="text-xs uppercase tracking-wider text-gray-500 mb-2 font-bold">Darbo vieta</h5>
                       <p className="text-gray-700 font-medium">{selectedTrainer.location}</p>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="bg-white p-5 rounded-2xl border border-gray-100">
+                      <div className="bg-white dark:bg-gray-100 p-5 rounded-2xl border border-gray-100">
                         <h5 className="text-xs uppercase tracking-wider text-gray-500 mb-2 font-bold">Telefonas</h5>
                         <a href={`tel:${selectedTrainer.phone.replace(/\s/g, '')}`} className="text-primary font-medium hover:text-secondary transition-colors">
                           {selectedTrainer.phone}
                         </a>
                       </div>
 
-                      <div className="bg-white p-5 rounded-2xl border border-gray-100">
+                      <div className="bg-white dark:bg-gray-100 p-5 rounded-2xl border border-gray-100">
                         <h5 className="text-xs uppercase tracking-wider text-gray-500 mb-2 font-bold">El. paštas</h5>
                         <a href={`mailto:${selectedTrainer.email}`} className="text-primary font-medium hover:text-secondary transition-colors break-all">
                           {selectedTrainer.email}

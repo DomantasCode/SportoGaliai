@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasiūlymas | MozeTech x Klaipėdos Veja</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0b0f19;
+            --card-bg: #151b2b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+            --accent-green: #22c55e; /* Išlaikytas akcentas kliento vejai */
+            --border-color: #1e293b;
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+            margin: 0;
+            padding: 40px 20px;
+            background-image:
+                    radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.15) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: rgba(21, 27, 43, 0.7);
+            backdrop-filter: blur(20px);
+            padding: 60px;
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Headeris */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 60px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 30px;
+        }
+
+        .brand {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        .project-name {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .meta-info {
+            text-align: right;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .meta-info a {
+            color: #818cf8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .meta-info a:hover { color: #a5b4fc; }
+
+        /* Pagrindinis turinys */
+        h2 {
+            font-size: 24px;
+            color: white;
+            margin-top: 50px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 24px;
+            background: var(--primary-gradient);
+            border-radius: 4px;
+        }
+
+        p { color: #cbd5e1; }
+
+        strong { color: white; }
+
+        /* Demo mygtukas */
+        .cta-box {
+            background: linear-gradient(90deg, rgba(30, 41, 59, 0.5) 0%, rgba(15, 23, 42, 0.5) 100%);
+            border: 1px solid #334155;
+            padding: 25px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; bottom: 0; width: 4px;
+            background: var(--accent-green);
+        }
+
+        .btn-demo {
+            background: var(--text-main);
+            color: var(--bg-dark);
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+        }
+
+        .btn-demo:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Kortelės */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: rgba(30, 41, 59, 0.4);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(30, 41, 59, 0.7);
+            border-color: #6366f1;
+            transform: translateY(-4px);
+        }
+
+        .feature-title {
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 18px;
+        }
+
+        /* Kaina */
+        .price-section {
+            background: var(--primary-gradient);
+            padding: 3px; /* Gradient border trick */
+            border-radius: 20px;
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .price-inner {
+            background: #0f1218;
+            padding: 40px;
+            border-radius: 18px;
+            text-align: center;
+        }
+
+        .price-tag {
+            font-size: 64px;
+            font-weight: 800;
+            color: white;
+            line-height: 1;
+            margin: 20px 0;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .price-details {
+            display: inline-flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .pill {
+            background: rgba(99, 102, 241, 0.1);
+            color: #a5b4fc;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        /* Lentelė */
+        .table-container {
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        table { width: 100%; border-collapse: collapse; }
+
+        th, td {
+            padding: 18px 25px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background: rgba(255,255,255,0.03);
+            color: var(--text-muted);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        tr:last-child td { border-bottom: none; }
+
+        .highlight-green {
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        /* Footeris */
+        .footer {
+            margin-top: 80px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .contact-info div { margin-bottom: 8px; color: white; }
+        .contact-label { color: var(--text-muted); font-size: 12px; text-transform: uppercase; margin-right: 10px; }
+
+        @media (max-width: 600px) {
+            .container { padding: 30px 20px; }
+            .header { flex-direction: column; gap: 20px; }
+            .meta-info { text-align: left; }
+            .cta-box { flex-direction: column; text-align: center; gap: 20px; }
+            .footer { flex-direction: column; align-items: flex-start; }
+            .price-tag { font-size: 48px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div>
+            <div class="brand">MOZETECH</div>
+            <div class="project-name">Pasiūlymas: Klaipėdos Veja</div>
+        </div>
+        <div class="meta-info">
+            <div>2024-05-21</div>
+            <div>Parengė: <strong>Domantas Moisejevas</strong></div>
+            <div><a href="https://www.mozetech.lt">www.mozetech.lt</a></div>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 40px;">
+        <p style="font-size: 18px; color: white; margin-bottom: 20px;"><strong>Labas! 👋</strong></p>
+        <p>Buvo smagu pas tave dirbti. Prisimenu tavo idėją apie svetainę, tad pagalvojau – kodėl gi ne dabar? Šiuo metu plečiu <strong>MozeTech</strong> portfolio ir sukūriau modernią, pilnai veikiančią demo versiją tavo verslui.</p>
+
+        <div class="cta-box">
+            <div>
+                <strong style="color:white; font-size: 18px;">Peržiūrėk demo versiją</strong><br>
+                <span style="font-size: 14px; color: var(--text-muted);">Gyva, veikianti nuoroda</span>
+            </div>
+            <a href="#" class="btn-demo">Atidaryti Projektą &rarr;</a>
+        </div>
+    </div>
+
+    <h2><span style="font-size: 20px;">⚡</span> Kokia nauda tavo verslui?</h2>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <span class="feature-title" style="color: #60a5fa;">🧮 Kainos skaičiuoklė</span>
+            Klientas įveda plotą – mato kainą. Tai filtruoja netinkamus klientus ir taupo tavo laiką.
+        </div>
+        <div class="feature-card">
+            <span class="feature-title" style="color: #a78bfa;">📸 Galerija „Prieš / Po“</span>
+            Profesionalus darbų atvaizdavimas. Tavo atlikti darbai kalbės patys už save.
+        </div>
+        <div class="feature-card">
+            <span class="feature-title" style="color: #34d399;">📱 Mobilus Dizainas</span>
+            Optimizuota telefonams. 80% klientų ieško paslaugų būtent per mobilųjį.
+        </div>
+        <div class="feature-card">
+            <span class="feature-title" style="color: #fbbf24;">📩 Greita užklausa</span>
+            Forma, kuri siunčia laiškus tiesiai į tavo paštą. Jokių tarpinių žingsnių.
+        </div>
+    </div>
+
+    <div class="price-section">
+        <div class="price-inner">
+            <h3 style="margin:0; color:var(--text-muted); font-weight: 400; font-size: 14px; text-transform: uppercase; letter-spacing: 2px;">Portfolio Kaina</h3>
+            <div class="price-tag">€200</div>
+            <p style="margin:0; color: var(--text-muted); font-size: 14px;">(Standartinė agentūros kaina: €350 - €500)</p>
+
+            <div class="price-details">
+                <span class="pill">🚀 Pilnas paleidimas</span>
+                <span class="pill">💎 Unikalus dizainas</span>
+                <span class="pill">🛠️ 1 mėn. palaikymas</span>
+            </div>
+        </div>
+    </div>
+
+    <h2><span style="font-size: 20px;">🛡️</span> Skaidrūs techniniai kaštai</h2>
+    <p>Jokių paslėptų mokesčių. Naudoju <em>Next.js</em> + <em>Vercel</em> technologijas, kurios leidžia startuoti praktiškai nemokamai.</p>
+
+    <div class="table-container">
+        <table>
+            <tr>
+                <th>Paslauga</th>
+                <th>Kaina</th>
+            </tr>
+            <tr>
+                <td>Hostingas (Serveris)</td>
+                <td><span class="highlight-green">0 € / mėn.</span></td>
+            </tr>
+            <tr>
+                <td>Domenas (.lt adresas)</td>
+                <td>~10–15 € / metams</td>
+            </tr>
+            <tr>
+                <td style="color: white; font-weight: 600;">Tavo techninės išlaidos:</td>
+                <td style="color: white; font-weight: 600;">Tik ~15 € per metus</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="footer">
+        <div class="contact-info">
+            <h3 style="margin-top: 0; color: white;">Startuojam?</h3>
+            <p style="margin-bottom: 20px; font-size: 14px;">Galiu viską paruošti ir paleisti per 24-48 valandas.</p>
+
+            <div><span class="contact-label">Tel:</span> +370 669 09377</div>
+            <div><span class="contact-label">Email:</span> domantas@mozetech.lt</div>
+            <div><span class="contact-label">Web:</span> www.mozetech.lt</div>
+        </div>
+
+        <div style="text-align: right; font-size: 12px; color: var(--text-muted); max-width: 300px;">
+            „Siūlau tokią kainą, nes noriu turėti realų, veikiantį pavyzdį savo naujame portfolio. Tu gauni agentūros lygio produktą už pradedančiojo kainą.“
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; font-size: 12px; color: #475569;">
+        © 2024 MozeTech. Visos teisės saugomos.
+    </div>
+</div>
+
+</body>
+</html>

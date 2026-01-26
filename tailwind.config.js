@@ -17,17 +17,33 @@ export default {
     },
     extend: {
       colors: {
-        primary: '#AE46FF',      // Acid Purple
-        secondary: '#BEF400',    // Electric Lime
-        accent: '#FD8432',       // Hot Fire (CTA)
-        dark: '#000000',         // Vamp Black
-        highlight: '#D8F600',    // Neon Yellow
-        neutral: '#7C7A7A',      // Dirty Gray
-        neutralDark: '#1a1a1a',  // Very Dark Gray
+        primary: '#AD46FF',      // Acid Purple (Main Brand Color)
+        secondary: '#8EFE00',    // Electric Lime (Accents/Shapes)
+        accent: '#FD8432',       // Hot Fire (CTA Buttons)
+        dark: '#050505',         // Vamp Black (Backgrounds)
+        highlight: '#D8F600',    // Neon Yellow (Highlights)
+        neutral: '#7A7A7A',      // Dirty Gray (Text)
+        neutralDark: '#1a1a1a',  // Dark Gray (Cards/Components)
       },
       fontFamily: {
-        sans: ['Outfit', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
+        display: ['"Roboto Condensed"', 'sans-serif'],
       },
+      animation: {
+        'gradient-xy': 'gradient-xy 15s ease infinite',
+      },
+      keyframes: {
+        'gradient-xy': {
+          '0%, 100%': {
+            'background-size': '400% 400%',
+            'background-position': 'left center'
+          },
+          '50%': {
+            'background-size': '200% 200%',
+            'background-position': 'right center'
+          }
+        }
+      }
     },
   },
   plugins: [],

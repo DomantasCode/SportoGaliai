@@ -1,12 +1,12 @@
-import { 
-  Activity, 
-  Users, 
-  Heart, 
-  Dumbbell, 
-  Award, 
-  Clock, 
-  ShieldCheck, 
-  Smile 
+import {
+  Activity,
+  Users,
+  Heart,
+  Dumbbell,
+  Award,
+  Clock,
+  ShieldCheck,
+  Smile
 } from 'lucide-react';
 import { NavItem, Service, Benefit, Trainer, Step, FAQItem, Testimonial, Sponsor } from './types.ts';
 
@@ -14,6 +14,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Apie mus', href: '#about' },
   { label: 'Paslaugos', href: '#services' },
   { label: 'Treneriai', href: '#trainers' },
+  { label: 'Programos kelias', href: '#process' },
   { label: 'DUK', href: '#faq' },
   { label: 'Kontaktai', href: '#contact-form' },
 ];
@@ -21,11 +22,11 @@ export const NAV_ITEMS: NavItem[] = [
 export const SERVICES: Service[] = [
   {
     title: 'Kineziterapija',
-    description: 'Laikysenos korekcija, raumenų stiprinimas ir judesių lavinimas vaikams profesionalių kineziterapeutų priežiūroje.',
+    description: 'Kineziterapeutų vedami užsiėmimai, skirti vaiko laikysenos korekcijai, raumenų balansui ir saugiam judėjimui.',
     icon: Activity,
-    fullDescription: 'Užsiėmimai skirti vaikams su laikysenos sutrikimais (skoliozė, kifozė), pėdų deformacijomis ar raumenų disbalansu. Kineziterapeutai naudoja modernias metodikas per žaidimą ir tikslingus pratimus, kad sustiprintų raumenis ir suformuotų taisyklingus judesio įpročius.',
+    fullDescription: 'Užsiėmimai skirti vaikams su laikysenos sutrikimais (skoliozė, kifozė), pėdų deformacijomis ar raumenų disbalansu. Kineziterapeutai veda užsiėmimus, derindami žaidimą ir tikslingus pratimus, kad sustiprintų raumenis ir padėtų formuoti taisyklingus judėjimo įpročius.',
     features: [
-      'Individualus kinezaterapinis ištyrimas',
+      'Individualus kineziterapinis įvertinimas',
       'Laikysenos korekcija ir stebėjimas',
       'Pėdų skliauto formavimas',
       'Kvėpavimo pratimai',
@@ -35,14 +36,14 @@ export const SERVICES: Service[] = [
   },
   {
     title: 'Individualios Treniruotės',
-    description: 'Asmeninis dėmesys ir pritaikyta programa, skirta pasiekti konkrečius vaiko fizinius tikslus.',
+    description: 'Asmeninis profesionalo dėmesys ir individuali programa, orientuota į vaiko fizinę raidą bei tikslus.',
     icon: Dumbbell,
-    fullDescription: 'Individualios treniruotės skirtos tiems, kurie nori maksimalaus trenerio dėmesio arba turi specifinių tikslų (pvz., pasiruošimas varžyboms, svorio korekcija, atsigavimas po traumos). Programa sudaroma atsižvelgiant į vaiko fiziologiją, amžių ir pomėgius.',
+    fullDescription: 'Individualios treniruotės vaikams, turintiems specifinių tikslų (pvz., pasiruošimas varžyboms, svorio korekcija, atsigavimas po traumos) ir norintiems daugiau asmeninio trenerio dėmesio. Programa pritaikoma pagal vaiko amžių, kūno ypatybes ir pomėgius.',
     features: [
-      '100% trenerio dėmesys',
+      'Individualus trenerio dėmesys',
       'Lankstus grafikas',
-      'Greitesnis progresas',
-      'Saugus krūvio dozavimas',
+      'Dar greitesnis progresas',
+      'Individuali programa',
       'Nuolatinė motyvacija ir palaikymas'
     ],
     duration: '60 min.'
@@ -51,26 +52,26 @@ export const SERVICES: Service[] = [
     title: 'Grupiniai Užsiėmimai',
     description: 'Smagios ir aktyvios treniruotės bendraamžių būryje, skatinančios socializaciją ir komandinį darbą.',
     icon: Users,
-    fullDescription: 'Tai bendro fizinio rengimo treniruotės nedidelėse grupėse (iki 10 vaikų). Čia vaikai ne tik sportuoja, bet ir mokosi bendrauti, laikytis taisyklių, laimėti ir pralaimėti. Užsiėmimai kupini estafetinių žaidimų, kliūčių ruožų ir smagių užduočių.',
+    fullDescription: 'Užsiėmimai vyksta nedidelėse grupėse – iki 12 vaikų. Čia vaikai sportuoja, mokosi bendradarbiauti, laikytis taisyklių ir sveikai priimti pergales bei pralaimėjimus. Treniruotės sudarytos iš linksmų žaidimų, estafečių, kliūčių ruožų ir įvairių edukacinių užduočių.',
     features: [
       'Socializacija su bendraamžiais',
-      'Komandinio darbo ugdymas',
+      'Komandiškumo ugdymas',
       'Koordinacijos ir vikrumo lavinimas',
-      'Emocijų valdymas per sportą',
-      'Smagi ir dinamiška aplinka'
+      'Emocijų valdymas',
+      'Smagūs ir dinamiški užsiėmimai'
     ],
     duration: '50 min.'
   },
   {
     title: 'Šeimos Sporto Programos',
-    description: 'Aktyvus laisvalaikis visai šeimai – stiprinkite ryšį sportuodami kartu.',
+    description: 'Aktyvus laisvalaikis visai šeimai – stiprinti ryšį sportuojant kartu.',
     icon: Heart,
-    fullDescription: 'Savaitgalio užsiėmimai, kuriuose dalyvauja vaikai kartu su tėvais. Tai puiki proga parodyti vaikams pavyzdį ir kokybiškai praleisti laiką. Programoje – poriniai pratimai, šeimų estafetės ir atsipalaidavimo technikos.',
+    fullDescription: 'Savaitgaliais vykstantys užsiėmimai, kuriuose vaikai sportuoja kartu su tėvais. Programa sudaryta iš porinių pratimų, šeimos estafečių, edukacinių ir atsipalaidavimo užduočių. Puiki proga visiems kartu kokybiškai praleisti laiką.',
     features: [
-      'Ryšio stiprinimas tarp tėvų ir vaikų',
+      'Tėvų ir vaikų ryšio stiprinimas',
       'Teigiamas pavyzdys vaikams',
-      'Bendras aktyvus laisvalaikis',
-      'Tėvų edukacija apie vaiko fizinę raidą',
+      'Kokybiškai kartu praleistas laikas',
+      'Edukacija apie vaiko fizinę raidą tėvams',
       'Gera nuotaika visai savaitei'
     ],
     duration: '90 min.'
@@ -246,17 +247,17 @@ export const STEPS: Step[] = [
   {
     number: 1,
     title: 'Registracija',
-    description: 'Užpildykite formą arba paskambinkite mums.'
+    description: 'Užpildykite formą arba mums paskambinkite'
   },
   {
     number: 2,
     title: 'Bandomoji treniruotė',
-    description: 'Išbandykite mus nemokamai ir susipažinkite.'
+    description: 'Pirmąjį užsiėmimą išbandykite visiškai nemokamai'
   },
   {
     number: 3,
     title: 'Programos parinkimas',
-    description: 'Treneris parinks geriausią planą jūsų vaikui.'
+    description: 'Treneris parenka tinkamiausią planą jūsų vaikui'
   },
   {
     number: 4,
@@ -267,28 +268,24 @@ export const STEPS: Step[] = [
 
 export const FAQ: FAQItem[] = [
   {
-    question: 'Nuo kokio amžiaus priimami vaikai?',
-    answer: 'Priimame vaikus nuo 3 metų amžiaus į bendro fizinio rengimo grupes, o kineziterapijos užsiėmimai galimi ir jaunesniems pagal poreikį.'
+    question: 'Nuo kokio amžiaus vaikai gali lankyti užsiėmimus?',
+    answer: 'Bendro fizinio rengimo grupės skirtos vaikams nuo 3 metų, o kineziterapijos užsiėmimai galimi ir jaunesniems vaikams.'
   },
   {
-    question: 'Ar galima išbandyti nemokamai?',
-    answer: 'Taip! Pirmoji bandomoji treniruotė yra visiškai nemokama, kad galėtumėte įvertinti ar jums tinka mūsų metodika.'
+    question: 'Ar galima treniruotę išbandyti nemokamai?',
+    answer: 'Taip! Pirmoji treniruotė yra visiškai nemokama – jos metu galėsite susipažinti su mūsų metodika ir vėliau priimti jums tinkamiausią sprendimą.'
   },
   {
-    question: 'Ką reikia turėti treniruotei?',
-    answer: 'Patogią sportinę aprangą, sportinius batelius (švarius, skirtus salei) ir buteliuką vandens.'
+    question: 'Ką reikėtų atsinešti į treniruotę?',
+    answer: 'Patogią sportinę aprangą, švarius salei skirtus sportinius batelius ir vandens buteliuką.'
   },
   {
-    question: 'Kas yra kineziterapija?',
-    answer: 'Tai gydymas judesiu – specialūs pratimai, padedantys atstatyti ar pagerinti kaulų ir raumenų sistemos būklę, koreguoti laikyseną.'
-  },
-  {
-    question: 'Kiek trunka užsiėmimai?',
-    answer: 'Standartinė treniruotė trunka 45–60 minučių, priklausomai nuo vaiko amžiaus ir pasirinktos programos.'
+    question: 'Kokia yra užsiėmimų trukmė?',
+    answer: 'Standartinė treniruotė trunka apie 45-60 min., priklausomai nuo vaiko amžiaus ir pasirinktos programos.'
   },
   {
     question: 'Kur vyksta treniruotės?',
-    answer: 'Laukiame jūsų mūsų studijoje Vilniuje. Tikslų adresą rasite kontaktų skiltyje.'
+    answer: 'Pilną mokyklų sąrašą rasite paspaudę mygtuką „Registruotis“.'
   }
 ];
 
@@ -307,23 +304,27 @@ export const TESTIMONIALS: Testimonial[] = [
 
 export const SPONSORS: Sponsor[] = [
   {
-    name: "Vilniaus Savivaldybė",
-    logo: "https://placehold.co/200x80/f5f3ef/1a3c30?text=VILNIAUS+MIESTAS"
+    name: "Peilis ir šakutė",
+    logo: "/sponsors/peilis_ir_sakute.png"
   },
   {
-    name: "Sportland",
-    logo: "https://placehold.co/200x80/f5f3ef/1a3c30?text=SPORTLAND"
+    name: "Old Rabbit Design Studio",
+    logo: "/sponsors/old_rabbit.png"
   },
   {
-    name: "Audimas",
-    logo: "https://placehold.co/200x80/f5f3ef/1a3c30?text=AUDIMAS"
+    name: "Hustle Point",
+    logo: "/sponsors/hustle_point.png"
   },
   {
-    name: "Sveikas Miestas",
-    logo: "https://placehold.co/200x80/f5f3ef/1a3c30?text=SVEIKAS+MIESTAS"
+    name: "SKM",
+    logo: "/sponsors/skm.png"
   },
   {
-    name: "Nike",
-    logo: "https://placehold.co/200x80/f5f3ef/1a3c30?text=NIKE"
+    name: "LIRASA",
+    logo: "/sponsors/lirasa.jpg"
+  },
+  {
+    name: "MozeTech",
+    logo: "/sponsors/mozetech.png"
   }
 ];

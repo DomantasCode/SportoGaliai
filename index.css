@@ -1,3 +1,133 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        font-family: 'Inter', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Roboto Condensed', sans-serif;
+    }
+}
+
+@layer utilities {
+    .scrollbar-hidden {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scrollbar-hidden::-webkit-scrollbar {
+        display: none;
+    }
+
+    .scrollbar-visible {
+        -ms-overflow-style: auto;
+        /* Firefox uses thin and auto, we can try to style color if supported or fall back to thin */
+        scrollbar-width: auto;
+        scrollbar-color: rgba(156, 163, 175, 0.5) rgba(0, 0, 0, 0.05);
+    }
+
+    .scrollbar-visible::-webkit-scrollbar {
+        display: block;
+        height: 12px;
+    }
+
+    .scrollbar-visible::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 6px;
+    }
+
+    .scrollbar-visible::-webkit-scrollbar-thumb {
+        background-color: rgba(156, 163, 175, 0.6);
+        border-radius: 6px;
+        border: 3px solid transparent;
+        background-clip: content-box;
+    }
+
+    .scrollbar-visible::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(156, 163, 175, 0.9);
+    }
+
+    .animate-pulse-slow {
+        animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .animate-reverse-pulse-slow {
+        animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite reverse;
+    }
+
+    @keyframes bounce-slow {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-15px);
+        }
+    }
+
+    .animate-bounce-slow {
+        animation: bounce-slow 4s ease-in-out infinite;
+    }
+
+    @keyframes spin-slow {
+        from {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+        to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+
+    .animate-spin-slow {
+        animation: spin-slow 60s linear infinite;
+    }
+
+    video:fullscreen {
+        object-fit: contain !important;
+    }
+
+    video:-webkit-full-screen {
+        object-fit: contain !important;
+    }
+
+    video:-moz-full-screen {
+        object-fit: contain !important;
+    }
+
+    video:-ms-fullscreen {
+        object-fit: contain !important;
+    }
+
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .animate-marquee {
+        animation: marquee 80s linear infinite;
+    }
+
+    .animate-marquee-fast {
+        animation: marquee 40s linear infinite;
+    }
+
+    .animate-marquee:hover {
+        animation-play-state: paused;
+    }
+}

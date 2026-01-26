@@ -21,15 +21,24 @@ export interface Benefit {
 }
 
 export interface Trainer {
+  id?: string;
   name: string;
-  role: string;
-  bio: string; // Short bio for card
-  image: string;
-  education: string;
-  location: string;
-  phone: string;
-  email: string;
-  motto: string;
+  // Database fields
+  specialization: string; // was role
+  description?: string;   // was bio
+  image_url?: string;     // was image
+  image_visible?: boolean;
+  order_index?: number;
+
+  // Frontend/Legacy (optional or to be deprecated)
+  role?: string;
+  bio?: string;
+  image?: string;
+  education?: string;
+  location?: string;
+  phone?: string;
+  email?: string;
+  motto?: string;
   achievements?: string;
 }
 

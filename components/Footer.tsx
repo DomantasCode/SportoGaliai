@@ -31,6 +31,47 @@ const Footer: React.FC = () => {
                 <Linkedin size={18} />
               </a>
             </div>
+
+            {/* Newsletter */}
+            <div>
+              <p className="text-gray-400 text-sm mb-3">Prenumeruokite naujienlaiškį</p>
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const input = (e.currentTarget.elements.namedItem('footer_email') as HTMLInputElement);
+                  const email = input.value;
+                  if (email && window.omnisend) {
+                    window.omnisend.push(['track', '$contactIdentified', { email: email }]);
+                    input.value = '';
+                    const btn = e.currentTarget.querySelector('button');
+                    if (btn) {
+                      btn.innerHTML = '&#10003;';
+                      btn.classList.add('bg-green-600', 'border-green-600');
+                      setTimeout(() => {
+                        btn.innerHTML = '&rarr;';
+                        btn.classList.remove('bg-green-600', 'border-green-600');
+                      }, 3000);
+                    }
+                  }
+                }}
+                className="flex gap-2"
+              >
+                <input
+                  type="email"
+                  name="footer_email"
+                  required
+                  placeholder="El. paštas"
+                  className="flex-1 px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-500 text-sm focus:border-primary focus:outline-none transition-colors"
+                />
+                <button
+                  type="submit"
+                  className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-white hover:bg-primary hover:border-primary transition-all text-sm font-bold"
+                  aria-label="Prenumeruoti"
+                >
+                  &rarr;
+                </button>
+              </form>
+            </div>
           </div>
 
           {/* Quick Links */}

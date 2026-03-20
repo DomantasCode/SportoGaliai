@@ -131,3 +131,13 @@
         animation-play-state: paused;
     }
 }
+
+/* Omnisend popup - hide on mobile */
+@media (max-width: 768px) {
+    .omnisend-form-container,
+    div[class*="omnisend"],
+    iframe[src*="omnisend"],
+    div[id*="omnisend"] {
+        display: none !important;
+    }
+}

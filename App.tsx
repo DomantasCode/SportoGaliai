@@ -16,7 +16,6 @@ import AdminLogin from './src/pages/Admin/Login';
 import AdminDashboard from './src/pages/Admin/Dashboard';
 import TrainerForm from './src/pages/Admin/TrainerForm';
 
-import Popup from './components/Popup';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
@@ -50,7 +49,6 @@ const MainLayout = () => (
       <Sponsors />
     </main>
     <Footer />
-    <Popup />
   </div>
 );
 

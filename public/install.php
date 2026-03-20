@@ -22,7 +22,7 @@ try {
     $trainersSql = "CREATE TABLE IF NOT EXISTS `trainers` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
       `name` varchar(255) NOT NULL,
-      `specialization` varchar(255) NOT NULL,
+      `specialization` varchar(255) DEFAULT '',
       `description` text,
       `education` varchar(255) DEFAULT '',
       `location` varchar(255) DEFAULT '',

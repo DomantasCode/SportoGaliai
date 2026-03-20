@@ -1,5 +1,11 @@
 import { LucideIcon } from 'lucide-react';
 
+declare global {
+  interface Window {
+    omnisend: any[];
+  }
+}
+
 export interface NavItem {
   label: string;
   href: string;

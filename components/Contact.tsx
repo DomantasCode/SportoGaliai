@@ -279,6 +279,69 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
+        {/* Newsletter Section */}
+        <div className="bg-gray-50 dark:bg-neutralDark rounded-[3rem] shadow-xl overflow-hidden border border-gray-200 dark:border-white/10 mb-12">
+          <div className="p-8 md:p-12 lg:p-16 text-center relative overflow-hidden">
+            <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/10 rounded-full blur-[80px]" aria-hidden="true" />
+            <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-secondary/10 rounded-full blur-[80px]" aria-hidden="true" />
+
+            <div className="relative z-10 max-w-2xl mx-auto">
+              <div className="flex items-center gap-3 mb-4 justify-center">
+                <span className="h-px w-12 bg-secondary" />
+                <span className="text-primary font-bold tracking-widest uppercase text-xs">Naujienlaiškis</span>
+                <span className="h-px w-12 bg-secondary" />
+              </div>
+
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+                Būkite pirmieji sužinoti „Sporto Galia" naujienas
+              </h3>
+              <p className="text-gray-600 dark:text-gray-400 mb-8 text-base md:text-lg leading-relaxed">
+                Prenumeruokite naujienlaiškį ir gaukite informaciją apie treniruotes, renginius, bendruomenės naujienas bei kartais – specialias partnerių nuolaidas.
+              </p>
+
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const input = (e.currentTarget.elements.namedItem('newsletter_email') as HTMLInputElement);
+                  const email = input.value;
+                  if (email && window.omnisend) {
+                    window.omnisend.push(['track', '$contactIdentified', { email: email }]);
+                    input.value = '';
+                    const btn = e.currentTarget.querySelector('button');
+                    if (btn) {
+                      btn.textContent = 'Prenumeruota!';
+                      btn.classList.add('bg-green-600');
+                      setTimeout(() => {
+                        btn.textContent = 'Prenumeruoti';
+                        btn.classList.remove('bg-green-600');
+                      }, 3000);
+                    }
+                  }
+                }}
+                className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto"
+              >
+                <input
+                  type="email"
+                  name="newsletter_email"
+                  required
+                  placeholder="Jūsų el. paštas"
+                  className="flex-1 px-5 py-4 rounded-xl border border-gray-300 dark:border-white/10 bg-white dark:bg-white/5 text-gray-900 dark:text-white placeholder-gray-400 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                />
+                <button
+                  type="submit"
+                  className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/30 hover:shadow-xl active:scale-[0.98] whitespace-nowrap"
+                >
+                  Prenumeruoti
+                </button>
+              </form>
+
+              <p className="mt-4 text-xs text-gray-400">
+                Jokio spam'o – tik naudinga informacija. Galėsite atsisakyti bet kada.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Contact Form & Info */}
         <div id="contact-form" className="bg-gray-50 dark:bg-neutralDark rounded-[3rem] shadow-xl overflow-hidden border border-gray-200 dark:border-white/10">
           <div className="grid grid-cols-1 lg:grid-cols-12">

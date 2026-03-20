@@ -187,7 +187,7 @@ const Trainers: React.FC = () => {
                         <img
                           src={trainer.image_url}
                           alt={trainer.name}
-                          className="w-full h-full object-cover opacity-100 transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                          className="w-full h-full object-cover opacity-100 transition-transform duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                       </div>
@@ -342,10 +342,6 @@ const Trainers: React.FC = () => {
                             <h3 className={`font-display text-2xl font-bold mb-1 leading-none ${hasImage ? 'text-white' : 'text-gray-900 dark:text-white'}`}>
                               {trainer.name}
                             </h3>
-                            <p className={`font-bold uppercase tracking-widest text-[10px] mb-4 ${hasImage ? 'text-secondary' : 'text-primary'}`}>
-                              {trainer.role}
-                            </p>
-
                             <div className={`mt-auto pt-4 border-t ${hasImage ? 'border-white/20' : 'border-gray-100 dark:border-white/5'}`}>
                               <p className={`text-sm italic line-clamp-2 ${hasImage ? 'text-gray-300' : 'text-gray-500 dark:text-gray-400'}`}>
                                 "{trainer.motto}"
@@ -392,9 +388,21 @@ const Trainers: React.FC = () => {
               <div className="hidden md:block absolute bottom-0 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
 
               <div className="relative z-10 max-w-2xl w-full animate-in slide-in-from-bottom-4 duration-500 pt-8 md:pt-0">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-bold tracking-widest uppercase mb-4 md:mb-6">
-                  {selectedTrainer.role}
-                </div>
+
+                {/* Trainer Photo */}
+                {shouldShowImage(selectedTrainer) ? (
+                  <div className="w-32 h-32 md:w-44 md:h-44 mx-auto mb-6 md:mb-8 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl shadow-primary/10">
+                    <img
+                      src={selectedTrainer.image_url}
+                      alt={selectedTrainer.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-32 h-32 md:w-44 md:h-44 mx-auto mb-6 md:mb-8 rounded-full bg-gradient-to-br from-primary/20 to-secondary/10 border-4 border-primary/20 flex items-center justify-center">
+                    <User size={60} className="text-primary/40" />
+                  </div>
+                )}
 
                 <h3 className="font-display text-3xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-none tracking-tight mb-4 md:mb-8">
                   {selectedTrainer.name}

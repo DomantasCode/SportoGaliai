@@ -15,49 +15,69 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
+// Initialize default admin if no users exist
+$users = readData('users');
+if (empty($users)) {
+    $users[] = array(
+        'id' => '1',
+        'email' => 'info@sportogalia.lt',
+        'password_hash' => password_hash('SportoGalia!2026', PASSWORD_BCRYPT)
+    );
+    writeData('users', $users);
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'login') {
     $data = json_decode(file_get_contents("php://input"));
-    
-    if (!empty($data->email) && !empty($data->password)) {
-        try {
-            $stmt = $pdo->prepare("SELECT id, email, password_hash FROM users WHERE email = :email LIMIT 1");
-            $stmt->execute([':email' => $data->email]);
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($user && password_verify($data->password, $user['password_hash'])) {
-                sendJson(['success' => true, 'message' => 'Login successful', 'user_id' => $user['id']]);
-            } else {
-                sendJson(['success' => false, 'message' => 'Invalid email or password'], 401);
+    if (!empty($data->email) && !empty($data->password)) {
+        $users = readData('users');
+        $found = null;
+        foreach ($users as $u) {
+            if ($u['email'] === $data->email) {
+                $found = $u;
+                break;
             }
-        } catch (Exception $e) {
-            sendJson(['success' => false, 'message' => 'Database error'], 500);
+        }
+
+        if ($found && password_verify($data->password, $found['password_hash'])) {
+            sendJson(array('success' => true, 'message' => 'Login successful', 'user_id' => $found['id']));
+        } else {
+            sendJson(array('success' => false, 'message' => 'Invalid email or password'), 401);
         }
     } else {
-        sendJson(['success' => false, 'message' => 'Incomplete data'], 400);
+        sendJson(array('success' => false, 'message' => 'Incomplete data'), 400);
     }
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'register') {
-    // Optional: Protect this endpoint or remove after creating initial admin
     $data = json_decode(file_get_contents("php://input"));
 
     if (!empty($data->email) && !empty($data->password)) {
-        try {
-            $passHash = password_hash($data->password, PASSWORD_BCRYPT);
-            $stmt = $pdo->prepare("INSERT INTO users (email, password_hash) VALUES (:email, :pass)");
-            $stmt->execute([':email' => $data->email, ':pass' => $passHash]);
-            sendJson(['success' => true, 'message' => 'User registered']);
-        } catch (Exception $e) {
-             // 23000 is SQLSTATE for integrity constraint violation (e.g. duplicate email)
-            if ($e->getCode() == 23000) {
-                 sendJson(['success' => false, 'message' => 'Email already exists'], 409);
+        $users = readData('users');
+
+        // Check if email exists
+        foreach ($users as $u) {
+            if ($u['email'] === $data->email) {
+                sendJson(array('success' => false, 'message' => 'Email already exists'), 409);
             }
-            sendJson(['success' => false, 'message' => 'Registration failed'], 500);
         }
+
+        $maxId = 0;
+        foreach ($users as $u) {
+            if (intval($u['id']) > $maxId) $maxId = intval($u['id']);
+        }
+
+        $users[] = array(
+            'id' => strval($maxId + 1),
+            'email' => $data->email,
+            'password_hash' => password_hash($data->password, PASSWORD_BCRYPT)
+        );
+        writeData('users', $users);
+        sendJson(array('success' => true, 'message' => 'User registered'));
     } else {
-        sendJson(['success' => false, 'message' => 'Incomplete data'], 400);
+        sendJson(array('success' => false, 'message' => 'Incomplete data'), 400);
     }
 }
 
-sendJson(['success' => false, 'message' => 'Invalid action'], 400);
+sendJson(array('success' => false, 'message' => 'Invalid action'), 400);
 ?>

@@ -200,10 +200,9 @@ const TrainerForm: React.FC = () => {
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-gray-700 mb-1">Pareigos / Specializacija *</label>
+                                <label className="block text-sm font-medium text-gray-700 mb-1">Pareigos / Specializacija</label>
                                 <input
                                     type="text"
-                                    required
                                     value={formData.specialization}
                                     onChange={(e) => setFormData({ ...formData, specialization: e.target.value })}
                                     className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"

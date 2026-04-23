@@ -23,6 +23,14 @@ const Trainers: React.FC = () => {
             ...t,
             image_visible: typeof t.image_visible === 'string' ? t.image_visible === '1' : Boolean(t.image_visible)
           }));
+          // Always place Karolis Brusokas at the end
+          mapped.sort((a: Trainer, b: Trainer) => {
+            const aIsKarolis = a.name.trim().toLowerCase() === 'karolis brusokas';
+            const bIsKarolis = b.name.trim().toLowerCase() === 'karolis brusokas';
+            if (aIsKarolis && !bIsKarolis) return 1;
+            if (!aIsKarolis && bIsKarolis) return -1;
+            return 0;
+          });
           setTrainersList(mapped);
         } else {
           setError('Gauti neteisingi duomenys iš serverio');

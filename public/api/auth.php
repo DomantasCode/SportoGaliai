@@ -26,20 +26,27 @@ if (empty($users)) {
     writeData('users', $users);
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'login') {
-    $data = json_decode(file_get_contents("php://input"));
+// Parse input - support both JSON body and form POST
+$rawInput = file_get_contents("php://input");
+$data = json_decode($rawInput, true);
+if (!is_array($data)) {
+    $data = array();
+}
+$email = isset($data['email']) ? $data['email'] : (isset($_POST['email']) ? $_POST['email'] : '');
+$password = isset($data['password']) ? $data['password'] : (isset($_POST['password']) ? $_POST['password'] : '');
 
-    if (!empty($data->email) && !empty($data->password)) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'login') {
+    if (!empty($email) && !empty($password)) {
         $users = readData('users');
         $found = null;
         foreach ($users as $u) {
-            if ($u['email'] === $data->email) {
+            if ($u['email'] === $email) {
                 $found = $u;
                 break;
             }
         }
 
-        if ($found && password_verify($data->password, $found['password_hash'])) {
+        if ($found && password_verify($password, $found['password_hash'])) {
             sendJson(array('success' => true, 'message' => 'Login successful', 'user_id' => $found['id']));
         } else {
             sendJson(array('success' => false, 'message' => 'Invalid email or password'), 401);
@@ -50,14 +57,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'login') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'register') {
-    $data = json_decode(file_get_contents("php://input"));
-
-    if (!empty($data->email) && !empty($data->password)) {
+    if (!empty($email) && !empty($password)) {
         $users = readData('users');
 
         // Check if email exists
         foreach ($users as $u) {
-            if ($u['email'] === $data->email) {
+            if ($u['email'] === $email) {
                 sendJson(array('success' => false, 'message' => 'Email already exists'), 409);
             }
         }
@@ -69,8 +74,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'register') {
 
         $users[] = array(
             'id' => strval($maxId + 1),
-            'email' => $data->email,
-            'password_hash' => password_hash($data->password, PASSWORD_BCRYPT)
+            'email' => $email,
+            'password_hash' => password_hash($password, PASSWORD_BCRYPT)
         );
         writeData('users', $users);
         sendJson(array('success' => true, 'message' => 'User registered'));

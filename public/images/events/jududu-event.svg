@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a0b2e"/>
+      <stop offset="40%" stop-color="#3a1268"/>
+      <stop offset="100%" stop-color="#0a0415"/>
+    </linearGradient>
+    <radialGradient id="glowPurple" cx="30%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#AD46FF" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#AD46FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowLime" cx="85%" cy="15%" r="45%">
+      <stop offset="0%" stop-color="#8EFE00" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#8EFE00" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowOrange" cx="75%" cy="90%" r="55%">
+      <stop offset="0%" stop-color="#FD8432" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#FD8432" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8EFE00"/>
+      <stop offset="50%" stop-color="#FFE55C"/>
+      <stop offset="100%" stop-color="#FD8432"/>
+    </linearGradient>
+    <linearGradient id="pillGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#AD46FF"/>
+      <stop offset="100%" stop-color="#FD8432"/>
+    </linearGradient>
+    <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#ffffff" opacity="0.08"/>
+    </pattern>
+  </defs>
+
+  <!-- Background layers -->
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#dots)"/>
+  <rect width="1600" height="900" fill="url(#glowPurple)"/>
+  <rect width="1600" height="900" fill="url(#glowLime)"/>
+  <rect width="1600" height="900" fill="url(#glowOrange)"/>
+
+  <!-- Large decorative rings -->
+  <circle cx="1420" cy="180" r="160" fill="none" stroke="#8EFE00" stroke-width="2" opacity="0.25"/>
+  <circle cx="1420" cy="180" r="110" fill="none" stroke="#8EFE00" stroke-width="2" opacity="0.15"/>
+  <circle cx="1420" cy="180" r="60" fill="#8EFE00" opacity="0.08"/>
+  <circle cx="170" cy="780" r="120" fill="none" stroke="#FD8432" stroke-width="2" opacity="0.3"/>
+  <circle cx="170" cy="780" r="70" fill="none" stroke="#FD8432" stroke-width="2" opacity="0.2"/>
+
+  <!-- Floating shapes -->
+  <g opacity="0.6">
+    <rect x="1200" y="420" width="14" height="14" fill="#8EFE00" transform="rotate(45 1207 427)"/>
+    <rect x="1280" y="480" width="10" height="10" fill="#FD8432" transform="rotate(30 1285 485)"/>
+    <rect x="1340" y="380" width="8" height="8" fill="#8EFE00" transform="rotate(15 1344 384)"/>
+    <circle cx="100" cy="420" r="6" fill="#AD46FF"/>
+    <circle cx="60" cy="500" r="4" fill="#8EFE00"/>
+    <circle cx="130" cy="540" r="5" fill="#FD8432"/>
+  </g>
+
+  <!-- Diagonal strokes -->
+  <line x1="1100" y1="-40" x2="1680" y2="540" stroke="url(#titleGradient)" stroke-width="2" opacity="0.35"/>
+  <line x1="0" y1="600" x2="400" y2="1000" stroke="#FD8432" stroke-width="2" opacity="0.3"/>
+
+  <!-- Main title -->
+  <g transform="translate(130, 220)" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="900">
+    <text font-size="150" fill="#ffffff" letter-spacing="-5">
+      <tspan x="0" dy="0">Šeimos,</tspan>
+    </text>
+    <text font-size="150" fill="url(#titleGradient)" letter-spacing="-5">
+      <tspan x="0" dy="160">judam</tspan>
+      <tspan x="0" dy="160">kartu!</tspan>
+    </text>
+    <text x="770" y="460" font-size="140">💛</text>
+  </g>
+
+  <!-- Detail pills -->
+  <g transform="translate(130, 790)" font-family="Inter, system-ui, -apple-system, sans-serif">
+    <!-- Date pill -->
+    <rect x="0" y="0" width="220" height="70" rx="35" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.5"/>
+    <text x="34" y="44" font-size="28">📅</text>
+    <text x="76" y="31" font-size="11" font-weight="700" fill="#ffffff" opacity="0.6" letter-spacing="2">DATA</text>
+    <text x="76" y="52" font-size="20" font-weight="800" fill="#ffffff">Bal. 26 d.</text>
+
+    <!-- Time pill -->
+    <rect x="244" y="0" width="180" height="70" rx="35" fill="#ffffff" fill-opacity="0.08" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.5"/>
+    <text x="278" y="44" font-size="28">⏰</text>
+    <text x="320" y="31" font-size="11" font-weight="700" fill="#ffffff" opacity="0.6" letter-spacing="2">LAIKAS</text>
+    <text x="320" y="52" font-size="20" font-weight="800" fill="#ffffff">10:00</text>
+
+    <!-- Place pill -->
+    <rect x="448" y="0" width="300" height="70" rx="35" fill="url(#pillGrad)" fill-opacity="0.25" stroke="#FD8432" stroke-opacity="0.6" stroke-width="1.5"/>
+    <text x="482" y="44" font-size="28">📍</text>
+    <text x="524" y="31" font-size="11" font-weight="700" fill="#ffffff" opacity="0.7" letter-spacing="2">VIETA</text>
+    <text x="524" y="52" font-size="20" font-weight="800" fill="#ffffff">Aerottoria arena</text>
+  </g>
+</svg>

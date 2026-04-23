@@ -8,13 +8,15 @@ import {
   ShieldCheck,
   Smile
 } from 'lucide-react';
-import { NavItem, Service, Benefit, Trainer, Step, FAQItem, Testimonial, Sponsor } from './types.ts';
+import { NavItem, Service, Benefit, Trainer, Step, FAQItem, Testimonial, Sponsor, Camp, CampProgramDay } from './types.ts';
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Apie mus', href: '#about' },
   { label: 'Paslaugos', href: '#services' },
+  { label: 'Stovyklos', href: '#camps' },
   { label: 'Treneriai', href: '#trainers' },
   { label: 'Programos kelias', href: '#process' },
+  { label: 'Naujienos', href: '#news' },
   { label: 'DUK', href: '#faq' },
   { label: 'Kontaktai', href: '#contact-form' },
 ];
@@ -326,5 +328,125 @@ export const SPONSORS: Sponsor[] = [
   {
     name: "MozeTech",
     logo: "/sponsors/mozetech.png"
+  },
+  {
+    name: "LemonGym",
+    logo: "/sponsors/logo_lemons-ee_1.png"
+  }
+];
+
+export const CAMPS: Camp[] = [
+  {
+    id: "june-week-1",
+    month: "Birželis",
+    weekLabel: "1 savaitė",
+    dateRange: "06.08 – 06.12",
+    registerUrl: "https://embed.exoclass.com/lt/embed/provider/cc909582-9556-49fb-ae29-4ded9b2fee2e/group-management/0de61ce8-d1f2-4949-8ac2-e6064f39f50f",
+    accent: "primary"
+  },
+  {
+    id: "june-week-2",
+    month: "Birželis",
+    weekLabel: "2 savaitė",
+    dateRange: "06.15 – 06.19",
+    registerUrl: "https://embed.exoclass.com/lt/embed/provider/cc909582-9556-49fb-ae29-4ded9b2fee2e/group-management/9bc470d2-b7cb-47a3-8014-3819c50b61aa",
+    accent: "secondary"
+  },
+  {
+    id: "july",
+    month: "Liepa",
+    weekLabel: "Vasaros finišas",
+    dateRange: "07.06 – 07.10",
+    registerUrl: "https://embed.exoclass.com/lt/embed/provider/cc909582-9556-49fb-ae29-4ded9b2fee2e/group-management/cb8f3e2c-d25f-4304-953e-5c97c49710e3",
+    accent: "accent"
+  }
+];
+
+export const CAMP_DESCRIPTION = "Aktyvus vaikas – stiprus, pasitikintis savimi ir smalsus pasauliui. Ši sporto ir sveikatingumo stovykla skirta vaikams, kuriems svarbu ne tik judėti, bet ir augti per patirtį. Kiekvieną dieną vaikai išbando skirtingas sporto kryptis: futbolą, krepšinį, lauko tenisą, lengvąją atletiką bei HYROX Kids treniruotes.";
+
+export const CAMP_BENEFITS: { title: string; description: string }[] = [
+  {
+    title: "Komandinis darbas",
+    description: "Vaikai mokosi bendradarbiauti, pasitikėti komanda ir siekti bendro tikslo."
+  },
+  {
+    title: "Atsakomybė ir fair-play",
+    description: "Ugdomi sąžiningo žaidimo principai, pagarba varžovams ir savo žodžiui."
+  },
+  {
+    title: "Pasitikėjimas savimi",
+    description: "Kiekvienas iššūkis – proga atrasti savo jėgą ir didžiuotis savo pastangomis."
+  },
+  {
+    title: "Sveika gyvensena",
+    description: "Sveikos mitybos, emocinės savijautos ir aktyvaus laisvalaikio pagrindai."
+  }
+];
+
+export const CAMP_PROGRAM: CampProgramDay[] = [
+  {
+    day: 1,
+    title: "Susipažinimas ir futbolas",
+    slots: [
+      { time: "08:30–09:00", activity: "Atvykimas, susipažinimas, grupių formavimas" },
+      { time: "09:00–09:30", activity: "Pusryčiai" },
+      { time: "09:30–11:00", activity: "Fizinis pasirengimas (apšilimas, ištvermė)" },
+      { time: "11:00–11:30", activity: "Pertrauka" },
+      { time: "11:30–13:00", activity: "Futbolo treniruotė" },
+      { time: "13:00–14:00", activity: "Pietūs" },
+      { time: "14:00–15:30", activity: "Edukacija: komandinis darbas ir draugystė" },
+      { time: "15:30–16:00", activity: "Pavakariai" },
+      { time: "16:00–17:00", activity: "Refleksija" }
+    ]
+  },
+  {
+    day: 2,
+    title: "Krepšinis",
+    slots: [
+      { time: "09:00–09:30", activity: "Pusryčiai" },
+      { time: "09:30–11:00", activity: "Koordinacija ir greitis" },
+      { time: "11:30–13:00", activity: "Krepšinio pagrindai" },
+      { time: "13:00–14:00", activity: "Pietūs" },
+      { time: "14:00–15:30", activity: "Edukacija: sveikos mitybos pagrindai" },
+      { time: "15:30–17:00", activity: "Refleksija" }
+    ]
+  },
+  {
+    day: 3,
+    title: "Lauko tenisas",
+    slots: [
+      { time: "09:00–09:30", activity: "Pusryčiai" },
+      { time: "09:30–11:00", activity: "Jėga ir lankstumas" },
+      { time: "11:00–11:30", activity: "Pertrauka" },
+      { time: "11:30–13:00", activity: "Lauko teniso treniruotė: pagrindai, technika, žaidybiniai elementai" },
+      { time: "13:00–14:00", activity: "Pietūs" },
+      { time: "14:00–15:30", activity: "Edukacija: sporto kultūra ir fair-play" },
+      { time: "15:30–16:00", activity: "Pavakariai" },
+      { time: "16:00–17:00", activity: "Refleksija" }
+    ]
+  },
+  {
+    day: 4,
+    title: "Lengvoji atletika ir gamta",
+    slots: [
+      { time: "09:00–09:30", activity: "Pusryčiai" },
+      { time: "09:30–11:00", activity: "Greitis ir koordinacija" },
+      { time: "11:30–13:00", activity: "Lengvosios atletikos pagrindai" },
+      { time: "13:00–14:00", activity: "Pietūs" },
+      { time: "14:00–15:30", activity: "Gamtos edukacija (judėjimas gamtoje, Viršuliškių miško parkas)" },
+      { time: "15:30–17:00", activity: "Refleksija" }
+    ]
+  },
+  {
+    day: 5,
+    title: "HYROX Kids ir uždarymas",
+    slots: [
+      { time: "09:00–09:30", activity: "Pusryčiai" },
+      { time: "09:30–11:00", activity: "HYROX Kids treniruotė (funkciniai iššūkiai)" },
+      { time: "11:30–13:00", activity: "Mini turnyras" },
+      { time: "13:00–14:00", activity: "Pietūs" },
+      { time: "15:30–16:00", activity: "Pavakariai" },
+      { time: "16:00–17:00", activity: "Stovyklos uždarymas, pažymėjimai" }
+    ]
   }
 ];

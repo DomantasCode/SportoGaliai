@@ -5,16 +5,20 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Benefits from './components/Benefits';
 import Services from './components/Services';
+import Camps from './components/Camps';
 import Trainers from './components/Trainers';
 import Process from './components/Process';
 import Testimonials from './components/Testimonials';
 import Sponsors from './components/Sponsors';
+import News from './components/News';
 import FAQSection from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AdminLogin from './src/pages/Admin/Login';
 import AdminDashboard from './src/pages/Admin/Dashboard';
 import TrainerForm from './src/pages/Admin/TrainerForm';
+import NewsForm from './src/pages/Admin/NewsForm';
+import Popup from './components/Popup';
 
 
 // Protected Route Component
@@ -33,24 +37,57 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
+// Scroll to hash target after content loads (async components like News can shift layout)
+const useHashScroll = () => {
+  useEffect(() => {
+    const scrollToHash = () => {
+      const hash = window.location.hash;
+      if (!hash || hash.length < 2) return;
+      const el = document.querySelector(hash);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    // Multiple attempts to catch both fast initial render and after async content loads
+    const timers = [
+      setTimeout(scrollToHash, 300),
+      setTimeout(scrollToHash, 900),
+      setTimeout(scrollToHash, 1800)
+    ];
+
+    window.addEventListener('hashchange', scrollToHash);
+    return () => {
+      timers.forEach(clearTimeout);
+      window.removeEventListener('hashchange', scrollToHash);
+    };
+  }, []);
+};
+
 // Main Site Layout (with Navbar/Footer)
-const MainLayout = () => (
+const MainLayout = () => {
+  useHashScroll();
+  return (
   <div className="min-h-screen bg-white dark:bg-dark text-gray-900 dark:text-white selection:bg-secondary selection:text-primary transition-colors duration-300">
     <Navbar />
     <main>
       <Hero />
       <Benefits />
       <Services />
+      <Camps />
       <Trainers />
       <Process />
+      <News />
       <Testimonials />
       <FAQSection />
       <Contact />
       <Sponsors />
     </main>
     <Footer />
+    <Popup />
   </div>
-);
+  );
+};
 
 function App() {
   return (
@@ -78,6 +115,22 @@ function App() {
         element={
           <ProtectedRoute>
             <TrainerForm />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/news/new"
+        element={
+          <ProtectedRoute>
+            <NewsForm />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/news/:id"
+        element={
+          <ProtectedRoute>
+            <NewsForm />
           </ProtectedRoute>
         }
       />

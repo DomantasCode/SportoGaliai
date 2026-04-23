@@ -54,5 +54,28 @@ export const api = {
             if (!res.ok) throw new Error('Failed to update visibility');
             return res.json();
         }
+    },
+    news: {
+        list: async () => {
+            const res = await fetch(`${API_URL}/news.php`);
+            return res.json();
+        },
+        get: async (id: string) => {
+            const res = await fetch(`${API_URL}/news.php?id=${id}`);
+            return res.json();
+        },
+        save: async (formData: FormData) => {
+            const res = await fetch(`${API_URL}/news.php`, {
+                method: 'POST',
+                body: formData,
+            });
+            if (!res.ok) throw new Error('Failed to save article');
+            return res.json();
+        },
+        delete: async (id: number) => {
+            await fetch(`${API_URL}/news.php?id=${id}`, {
+                method: 'DELETE',
+            });
+        },
     }
 };

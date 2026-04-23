@@ -70,3 +70,25 @@ export interface Sponsor {
   logo: string;
   url?: string;
 }
+
+export interface CampProgramSlot {
+  time: string;
+  activity: string;
+}
+
+export interface CampProgramDay {
+  day: number;
+  title: string;
+  slots: CampProgramSlot[];
+}
+
+export type CampAccent = 'primary' | 'secondary' | 'accent';
+
+export interface Camp {
+  id: string;
+  month: string;
+  weekLabel: string;
+  dateRange: string;
+  registerUrl: string;
+  accent: CampAccent;
+}
